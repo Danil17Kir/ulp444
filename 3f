@@ -1,0 +1,251 @@
+3)using System;
+
+
+
+public class Program
+
+{
+
+    public static void Main()
+
+    {
+            int kolichestvo;
+
+            kolichestvo = 0;
+
+        int[] A = new int[30];
+
+        var rand = new Random();
+
+        for (int i = 0; i < 30; i++)
+        
+            A[i] = rand.Next(-100, 100);
+
+
+        for (int i = 0; i < 30; i++)
+        {
+            Console.WriteLine(A[i]);
+            if ((A[i] % 3) == 0)
+            {
+
+                if ((A[i] % 7) != 0)
+
+                {
+
+                    kolichestvo = kolichestvo + 1;
+
+
+
+                }
+
+            }
+
+        }
+
+
+
+        Console.Write(" Количество: ");
+
+        Console.Write(kolichestvo);
+
+    }
+
+}
+4)using System;
+
+namespace ConsoleApp4
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int a = Convert.ToInt32(Console.ReadLine());
+            int chet = 0;
+            int notChet = 0;
+
+            for (int i = 0; a != 0; i++)
+            {
+                if ((a % 10) % 2 == 0)
+                { chet++; }
+                else
+                {
+                    notChet++;
+                }
+                a /= 10;
+            }
+
+            Console.WriteLine($"Вывод четного числа");
+            Console.WriteLine(chet);
+            Console.WriteLine("Вывод нечетного числа");
+            Console.WriteLine(notChet);
+        }
+    }
+}
+5)using System;
+
+namespace ConsoleApp5
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int n = 0, s = 0, a = 1, Sredn;
+            while (a > 0)
+            {
+                Console.Write("Введите целое число: "); 
+                a = Convert.ToInt32(Console.ReadLine()); 
+                if (a > 0)
+                {
+                    s += a;
+                    n++;
+                }
+
+            }
+            Sredn = s / n;
+            Console.WriteLine($"Среднее арифметическое значение: {Sredn}"); Console.Read();
+        }
+    }
+
+}
+6)using System;
+
+namespace ConsoleApp6
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int summ = 0;
+            for (int i = 0; i <= 50; i++)
+            {
+                if (i % 2 != 0)
+                {
+                    summ += i;
+                }
+            }
+            Console.Write("Вывод суммы: ");
+            Console.WriteLine(summ);
+        }
+   }
+}
+7)using System;
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.Write("Введите максимальное: ");
+            int max = int.Parse(Console.ReadLine());
+            Console.Write("Количество попыток: ");
+            int n = int.Parse(Console.ReadLine());
+            Random random = new Random();
+            int komp = random.Next(1, max);
+            for (int i = 0; i < n; i++)
+            {
+                Console.Write("Введите своё число: ");
+                int t = int.Parse(Console.ReadLine());
+                if (i == n - 1)
+                {
+                    Console.WriteLine("Попытки закончились");
+                    break;
+                }
+                if (komp != t)
+                {
+                    if (komp < t)
+                        Console.WriteLine("Число меньше");
+                    else
+                        Console.WriteLine("Число больше");
+                }
+                else
+                {
+                    Console.WriteLine("Вы угадали");
+                    break;
+                }
+            }
+        }
+    }
+8)using System;
+
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int[] mass = new int[] { 1, 2, 3, 4 };
+            Random rand = new Random();
+            while (mass[0] == 1 || mass[1] == 2 || mass[2] == 3 || mass[3] == 4)
+            {
+                for (int i = 0; i <= 3; i++)
+                {
+                    int a = rand.Next(mass.Length);
+                    int t = mass[i];
+                    mass[i] = mass[a];
+                    mass[a] = t;
+                }
+            }
+            for (int j = 0; j < mass.Length; j++)
+            {
+                Console.WriteLine($"{j + 1} {mass[j]}");
+            }
+        }
+    }
+9)using System;
+
+ 
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine("Введите a ");
+            int a = int.Parse(Console.ReadLine());
+            Console.WriteLine("Введите b ");
+            int b = int.Parse(Console.ReadLine());
+            Program random = new Program();
+            for(int i = 0; i < 100; i++)
+            {
+                Console.Write(random.Random(a, b + 1));
+                Console.Write(", ");
+            }
+        }
+        public int Random(int a, int b)
+        {
+            Random rand = new Random();
+            for (int i = 0; i < 100; i++)
+            {
+                rand.Next(a, b);
+            }
+            return rand.Next(a, b);
+        }
+    }
+10)using System;
+
+Console.WriteLine("Введите год: "); 
+int year = int.Parse(Console.ReadLine()); 
+for (int i = 1; i <= 12; i++) 
+{     
+    DateOnly d = new DateOnly(year, i, DateTime.DaysInMonth(year, i));     int data = d.Day - (7 + (int)d.DayOfWeek - 4) % 7; 
+    DateOnly dt = new DateOnly(year, i, data); 
+    Console.WriteLine($"{dt.ToString("D")} - четверг");     
+}
+11)using System;
+
+ 
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.Write("Введите площадь: ");
+            double S = double.Parse(Console.ReadLine());
+            for (int i = 1; i < 999; i++)
+            {
+                for (int j = 1; j < 999; j++)
+                {
+                    double g = Math.Sqrt(Math.Pow(i, 2) + Math.Pow(j, 2));
+                    double SS = (i * j) * 0.5;
+                    if (g == Math.Truncate(g) && (SS < S))
+                    {
+                        Console.WriteLine($"a={i}, b={j}, c={g}, S={SS}");
+                    }
+                }
+            }
+        }
+    }
+
